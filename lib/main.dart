@@ -45,15 +45,11 @@ class Transaksi {
   }
 }
 
-//switchcase jenis
-String jenis(String jenis) {
-  switch(jenis) {
-    case 'in':
-      return 'Masuk';
-    case 'out':
-      return 'Keluar';
-    default:
-      return 'Jenis tidak valid';
+String cekMasuk(bool masuk) {
+  if (masuk) {
+    return 'Masuk';
+  } else {
+    return 'Keluar';
   }
 }
 
@@ -76,7 +72,7 @@ void main() {
 
   Transaksi transaksi1 = Transaksi(
     keterangan: 'Penjualan hari senin',
-    jenis: jenis('out'),
+    jenis: cekMasuk(true),
     kategori: kategori('1'),
     jumlah: 350000,
     tanggal: Transaksi.inputTanggal(10, 9, 2026)
@@ -84,7 +80,7 @@ void main() {
 
   Transaksi transaksi2 = Transaksi(
     keterangan: 'Gaji Bulanan',
-    jenis: jenis('in'),
+    jenis: cekMasuk(true),
     kategori: kategori('3'),
     jumlah: 5000000,
     tanggal: Transaksi.inputTanggal(11, 9, 2026),
@@ -92,7 +88,7 @@ void main() {
 
   Transaksi transaksi3 = Transaksi(
     keterangan: 'Belanja Bahan Makanan',
-    jenis: jenis('out'),
+    jenis: cekMasuk(false),
     kategori: kategori('2'),
     jumlah: 150000,
     tanggal: Transaksi.inputTanggal(12, 9, 2026),
@@ -100,7 +96,7 @@ void main() {
 
   Transaksi transaksi4 = Transaksi(
     keterangan: 'Penjualan hari selasa',
-    jenis: jenis('out'),
+    jenis: cekMasuk(false),
     kategori: kategori('1'),
     jumlah: 400000,
     tanggal: Transaksi.inputTanggal(13, 9, 2026),
@@ -108,7 +104,7 @@ void main() {
 
   Transaksi transaksi5 = Transaksi(
     keterangan: 'Belanja Bahan Makanan',
-    jenis: jenis('out'),
+    jenis: cekMasuk(false),
     kategori: kategori('2'),
     jumlah: 200000,
     tanggal: Transaksi.inputTanggal(14, 9, 2026),
@@ -116,7 +112,7 @@ void main() {
 
   Transaksi transaksi6 = Transaksi(
     keterangan: 'Gaji Bulanan',
-    jenis: jenis('in'),
+    jenis: cekMasuk(true),
     kategori: kategori('3'),
     jumlah: 5000000,
     tanggal: Transaksi.inputTanggal(15, 9, 2026),
@@ -124,7 +120,7 @@ void main() {
 
   Transaksi transaksi7 = Transaksi(
     keterangan: 'Belanja Bahan Makanan',
-    jenis: jenis('out'),
+    jenis: cekMasuk(false),
     kategori: kategori('2'),
     jumlah: 250000,
     tanggal: Transaksi.inputTanggal(16, 9, 2026),
@@ -132,7 +128,7 @@ void main() {
 
   Transaksi transaksi8 = Transaksi(
     keterangan: 'Penjualan hari rabu',
-    jenis: jenis('out'),
+    jenis: cekMasuk(false),
     kategori: kategori('1'),
     jumlah: 450000,
     tanggal: Transaksi.inputTanggal(17, 9, 2026),
