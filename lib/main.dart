@@ -88,7 +88,55 @@ void main() {
     kategori: kategori('3'),
     jumlah: 5000000,
     tanggal: Transaksi.inputTanggal(11, 9, 2026),
-  );  
+  );
+
+  Transaksi transaksi3 = Transaksi(
+    keterangan: 'Belanja Bahan Makanan',
+    jenis: jenis('out'),
+    kategori: kategori('2'),
+    jumlah: 150000,
+    tanggal: Transaksi.inputTanggal(12, 9, 2026),
+  );
+
+  Transaksi transaksi4 = Transaksi(
+    keterangan: 'Penjualan hari selasa',
+    jenis: jenis('out'),
+    kategori: kategori('1'),
+    jumlah: 400000,
+    tanggal: Transaksi.inputTanggal(13, 9, 2026),
+  );
+
+  Transaksi transaksi5 = Transaksi(
+    keterangan: 'Belanja Bahan Makanan',
+    jenis: jenis('out'),
+    kategori: kategori('2'),
+    jumlah: 200000,
+    tanggal: Transaksi.inputTanggal(14, 9, 2026),
+  );
+
+  Transaksi transaksi6 = Transaksi(
+    keterangan: 'Gaji Bulanan',
+    jenis: jenis('in'),
+    kategori: kategori('3'),
+    jumlah: 5000000,
+    tanggal: Transaksi.inputTanggal(15, 9, 2026),
+  );
+
+  Transaksi transaksi7 = Transaksi(
+    keterangan: 'Belanja Bahan Makanan',
+    jenis: jenis('out'),
+    kategori: kategori('2'),
+    jumlah: 250000,
+    tanggal: Transaksi.inputTanggal(16, 9, 2026),
+  );
+
+  Transaksi transaksi8 = Transaksi(
+    keterangan: 'Penjualan hari rabu',
+    jenis: jenis('out'),
+    kategori: kategori('1'),
+    jumlah: 450000,
+    tanggal: Transaksi.inputTanggal(17, 9, 2026),
+  );
 }
 
 class MyApp extends StatelessWidget {
