@@ -15,7 +15,8 @@ class Transaksi {
     required this.tanggal,
   });
 
-  String inputTanggal(int dd, int mm, int yyyy) {
+  // static berguna mengubah kepemilikan method menjadi milik class bukan milik object
+  static String inputTanggal(int dd, int mm, int yyyy) {
     if (mm < 1 || mm > 12) {
       return 'Bulan tidak valid';
     }
@@ -24,7 +25,15 @@ class Transaksi {
 
     if (mm == 2) {
       // Cek apakah tahun kabisat
-      bool isKabisat = (yyyy % 4 == 0 && yyyy % 100 != 0) || (yyyy % 400 == 0);
+      bool isKabisat = (
+        // kelipatan 4 (kabisat)
+        yyyy % 4 == 0 && 
+        // abad bukan kabisat kecuali kelipatan 400
+        yyyy % 100 != 0
+        ) || (
+        // kelipatan 400 (kabisat)
+        yyyy % 400 == 0
+        );
       maxHari = isKabisat ? 29 : 28;
     } else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
       maxHari = 30;
@@ -33,7 +42,7 @@ class Transaksi {
       return 'Tanggal tidak valid untuk bulan dan tahun ini';
     }
     return '$dd/$mm/$yyyy';
-}
+  }
 }
 
 //switchcase jenis
@@ -62,8 +71,6 @@ String kategori(String kategori) {
   }
 }
 
-
-
 void main() {
   runApp(const MyApp());
 
@@ -72,7 +79,7 @@ void main() {
     jenis: jenis('out'),
     kategori: kategori('1'),
     jumlah: 350000,
-    tanggal: '12 Agustus 2026',
+    tanggal: Transaksi.inputTanggal(10, 9, 2026)
   );
 
   Transaksi transaksi2 = Transaksi(
@@ -80,9 +87,8 @@ void main() {
     jenis: jenis('in'),
     kategori: kategori('3'),
     jumlah: 5000000,
-    tanggal: '11 September 2026',
-  );
-  
+    tanggal: Transaksi.inputTanggal(11, 9, 2026),
+  );  
 }
 
 class MyApp extends StatelessWidget {
