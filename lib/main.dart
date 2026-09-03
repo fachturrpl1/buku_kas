@@ -14,6 +14,26 @@ class Transaksi {
     required this.jumlah,
     required this.tanggal,
   });
+
+  String inputTanggal(int dd, int mm, int yyyy) {
+    if (mm < 1 || mm > 12) {
+      return 'Bulan tidak valid';
+    }
+
+    int maxHari = 31;
+
+    if (mm == 2) {
+      // Cek apakah tahun kabisat
+      bool isKabisat = (yyyy % 4 == 0 && yyyy % 100 != 0) || (yyyy % 400 == 0);
+      maxHari = isKabisat ? 29 : 28;
+    } else if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+      maxHari = 30;
+    }
+    if (dd < 1 || dd > maxHari) {
+      return 'Tanggal tidak valid untuk bulan dan tahun ini';
+    }
+    return '$dd/$mm/$yyyy';
+}
 }
 
 //switchcase jenis
@@ -42,6 +62,8 @@ String kategori(String kategori) {
   }
 }
 
+
+
 void main() {
   runApp(const MyApp());
 
@@ -49,8 +71,8 @@ void main() {
     keterangan: 'Penjualan hari senin',
     jenis: jenis('out'),
     kategori: kategori('1'),
-    jumlah: 50000,
-    tanggal: '2023-06-01',
+    jumlah: 350000,
+    tanggal: '12 Agustus 2026',
   );
 
   Transaksi transaksi2 = Transaksi(
@@ -58,8 +80,9 @@ void main() {
     jenis: jenis('in'),
     kategori: kategori('3'),
     jumlah: 5000000,
-    tanggal: '2023-06-01',
+    tanggal: '11 September 2026',
   );
+  
 }
 
 class MyApp extends StatelessWidget {
