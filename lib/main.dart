@@ -73,7 +73,11 @@ int HitungSaldo(List<Transaksi> daftarTransaksi) {
     if (transaksi.jenis == 'Masuk') {
       saldo += transaksi.jumlah;
     } else if (transaksi.jenis == 'Keluar') {
-      saldo -= transaksi.jumlah;
+      if (transaksi.jumlah > saldo) {
+        print('melebihi saldo');
+      } else {
+        saldo -= transaksi.jumlah;
+      }
     }
   }
   return saldo;
