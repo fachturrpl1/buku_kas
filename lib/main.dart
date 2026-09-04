@@ -67,72 +67,84 @@ String kategori(String kategori) {
   }
 }
 
+int HitungSaldo(List<Transaksi> daftarTransaksi) {
+  int saldo = 0;
+  for (Transaksi transaksi in daftarTransaksi) {
+    if (transaksi.jenis == 'Masuk') {
+      saldo += transaksi.jumlah;
+    } else if (transaksi.jenis == 'Keluar') {
+      saldo -= transaksi.jumlah;
+    }
+  }
+  return saldo;
+}
+
 void main() {
   runApp(const MyApp());
 
-  Transaksi transaksi1 = Transaksi(
-    keterangan: 'Penjualan hari senin',
-    jenis: cekMasuk(true),
-    kategori: kategori('1'),
-    jumlah: 350000,
-    tanggal: Transaksi.inputTanggal(10, 9, 2026)
-  );
+  List<Transaksi> daftarTransaksi = [
+    Transaksi(
+      keterangan: 'Penjualan hari senin',
+      jenis: cekMasuk(true),
+      kategori: kategori('1'),
+      jumlah: 350000,
+      tanggal: Transaksi.inputTanggal(10, 9, 2026),
+    ),
+    Transaksi(
+      keterangan: 'Gaji Bulanan',
+      jenis: cekMasuk(true),
+      kategori: kategori('3'),
+      jumlah: 5000000,
+      tanggal: Transaksi.inputTanggal(11, 9, 2026),
+    ),
 
-  Transaksi transaksi2 = Transaksi(
-    keterangan: 'Gaji Bulanan',
-    jenis: cekMasuk(true),
-    kategori: kategori('3'),
-    jumlah: 5000000,
-    tanggal: Transaksi.inputTanggal(11, 9, 2026),
-  );
+    Transaksi(
+      keterangan: 'Belanja Bahan Makanan',
+      jenis: cekMasuk(false),
+      kategori: kategori('2'),
+      jumlah: 150000,
+      tanggal: Transaksi.inputTanggal(12, 9, 2026),
+    ),
+    Transaksi(
+      keterangan: 'Penjualan hari selasa',
+      jenis: cekMasuk(false),
+      kategori: kategori('1'),
+      jumlah: 400000,
+      tanggal: Transaksi.inputTanggal(13, 9, 2026),
+    ),
+    Transaksi(
+      keterangan: 'Belanja Bahan Makanan',
+      jenis: cekMasuk(false),
+      kategori: kategori('2'),
+      jumlah: 200000,
+      tanggal: Transaksi.inputTanggal(14, 9, 2026),
+    ),
 
-  Transaksi transaksi3 = Transaksi(
-    keterangan: 'Belanja Bahan Makanan',
-    jenis: cekMasuk(false),
-    kategori: kategori('2'),
-    jumlah: 150000,
-    tanggal: Transaksi.inputTanggal(12, 9, 2026),
-  );
+    Transaksi(
+      keterangan: 'Gaji Bulanan',
+      jenis: cekMasuk(true),
+      kategori: kategori('3'),
+      jumlah: 5000000,
+      tanggal: Transaksi.inputTanggal(15, 9, 2026),
+    ),
 
-  Transaksi transaksi4 = Transaksi(
-    keterangan: 'Penjualan hari selasa',
-    jenis: cekMasuk(false),
-    kategori: kategori('1'),
-    jumlah: 400000,
-    tanggal: Transaksi.inputTanggal(13, 9, 2026),
-  );
+    Transaksi(
+      keterangan: 'Belanja Bahan Makanan',
+      jenis: cekMasuk(false),
+      kategori: kategori('2'),
+      jumlah: 250000,
+      tanggal: Transaksi.inputTanggal(16, 9, 2026),
+    ),
 
-  Transaksi transaksi5 = Transaksi(
-    keterangan: 'Belanja Bahan Makanan',
-    jenis: cekMasuk(false),
-    kategori: kategori('2'),
-    jumlah: 200000,
-    tanggal: Transaksi.inputTanggal(14, 9, 2026),
-  );
+    Transaksi(
+      keterangan: 'Penjualan hari rabu',
+      jenis: cekMasuk(false),
+      kategori: kategori('1'),
+      jumlah: 450000,
+      tanggal: Transaksi.inputTanggal(17, 9, 2026),
+    ),
+  ];
 
-  Transaksi transaksi6 = Transaksi(
-    keterangan: 'Gaji Bulanan',
-    jenis: cekMasuk(true),
-    kategori: kategori('3'),
-    jumlah: 5000000,
-    tanggal: Transaksi.inputTanggal(15, 9, 2026),
-  );
-
-  Transaksi transaksi7 = Transaksi(
-    keterangan: 'Belanja Bahan Makanan',
-    jenis: cekMasuk(false),
-    kategori: kategori('2'),
-    jumlah: 250000,
-    tanggal: Transaksi.inputTanggal(16, 9, 2026),
-  );
-
-  Transaksi transaksi8 = Transaksi(
-    keterangan: 'Penjualan hari rabu',
-    jenis: cekMasuk(false),
-    kategori: kategori('1'),
-    jumlah: 450000,
-    tanggal: Transaksi.inputTanggal(17, 9, 2026),
-  );
 }
 
 class MyApp extends StatelessWidget {
